@@ -1,0 +1,249 @@
+:root{
+  --accent:#0b7285;
+  --muted:#94a3b8;
+  --bg:#07131a;
+  --card:#0b1220;
+  --glass: rgba(255,255,255,0.03);
+  --glass-2: rgba(255,255,255,0.02);
+  color-scheme: dark;
+  --max-width:1100px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font-family:Inter, system-ui, "Segoe UI", Arial;
+  background:linear-gradient(180deg,#071425 0%, #07131a 100%);
+  color:#e6eef6;line-height:1.5;
+}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:60;backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+.nav{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6ad0ff);display:flex;align-items:center;justify-content:center;font-weight:800;color:#04121a}
+.name{font-weight:700}
+.meta{font-size:13px;color:var(--muted)}
+
+/* nav links */
+.nav-links{display:flex;gap:12px;align-items:center}
+.nav-link{color:inherit;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;opacity:.95;transition:transform .18s ease,background .18s}
+.nav-link:hover{transform:translateY(-3px);background:var(--glass)}
+.nav-toggle{display:none;background:transparent;border:none;padding:8px;border-radius:8px;cursor:pointer}
+.hamburger{display:inline-block;width:26px;height:2px;background:#e8f0ff;position:relative}
+.hamburger::before,.hamburger::after{content:"";position:absolute;left:0;width:26px;height:2px;background:#e8f0ff;transition:transform .25s ease}
+.hamburger::before{top:-7px}
+.hamburger::after{top:7px}
+
+/* layout */
+.container{max-width:var(--max-width);margin:28px auto;padding:18px}
+.card{background:linear-gradient(180deg,var(--glass),var(--glass-2));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.section{margin-top:22px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.small-pad{padding:12px}
+
+/* hero */
+.hero{max-width:var(--max-width);margin:28px auto;display:grid;grid-template-columns:1fr 320px;gap:22px;align-items:center;padding:0 18px}
+.hero-left .title{font-size:32px;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 12px}
+
+/* CTA */
+.btn{display:inline-block;
+    padding:10px 14px;
+    border-radius:10px;
+    background:var(--accent);
+    color:#04121a;
+    text-decoration:none;
+    font-weight:700;
+    border:none;
+    cursor:pointer}
+.btn:hover{transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(11,114,133,0.4)}
+
+
+
+.btn.outline{background:transparent;color:inherit;border:1px solid rgba(255,255,255,0.06)}
+
+/* profile */
+.hero-right{display:flex;flex-direction:column;gap:12px;align-items:center}
+.profile-photo{width:100%;height:220px;object-fit:cover;border-radius:10px;box-shadow:0 8px 30px rgba(3,7,14,0.7)}
+.contact-mini{font-size:14px;color:var(--muted);width:100%}
+
+/* skills */
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.pill{background:rgba(255,255,255,0.03);
+    padding:8px 10px;
+    border-radius:999px;
+    font-size:14px;
+    cursor:pointer}
+
+.pill:hover{ background-color: #e6eef6;
+    color: black;
+    font-weight: bold;
+    
+}
+
+/* skill bars */
+.skill-bars{margin-top:18px}
+.skill{margin-bottom:10px}
+.skill label{font-size:13px;color:var(--muted)}
+.bar{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden;margin-top:6px}
+.bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#6ad0ff);transition:width 1.2s cubic-bezier(.2,.9,.2,1)}
+
+/* projects */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+.project-card{background:linear-gradient(180deg,rgba(255,255,255,0.012),transparent);padding:14px;border-radius:10px;cursor:pointer;transition:transform .18s ease,box-shadow .18s;display:flex;flex-direction:column;gap:10px}
+.project-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+.project-media{height:110px;border-radius:8px;background:linear-gradient(135deg,#07303a,#08111a)}
+
+/* modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);opacity:0;pointer-events:none;transition:opacity .18s}
+.modal[aria-hidden="false"]{opacity:1;pointer-events:auto}
+.modal-content{background:linear-gradient(180deg,var(--glass),var(--glass-2));padding:18px;border-radius:12px;width:min(880px,94%);position:relative;box-shadow:0 40px 80px rgba(2,6,23,0.7)}
+.modal-close{position:absolute;right:12px;top:12px;background:transparent;border:none;color:var(--muted);font-size:18px;cursor:pointer}
+
+/* small helpers */
+.muted{color:var(--muted)}
+.small-text{font-size:13px}
+.download-row{margin-top:12px}
+.footer{padding:28px;text-align:center;color:var(--muted)}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* responsive */
+@media (max-width:900px){
+  .nav-links{position:fixed;top:64px;right:16px;background:linear-gradient(180deg,var(--glass),var(--glass-2));backdrop-filter:blur(6px);padding:12px;border-radius:10px;flex-direction:column;gap:8px;display:none;box-shadow:0 12px 40px rgba(2,6,23,0.6)}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:inline-block}
+  .hero{grid-template-columns:1fr;gap:18px;padding:0 12px}
+  .grid-2{grid-template-columns:1fr}
+}
+
+/* micro interactions */
+.nav-link:active, .btn:active{transform:translateY(1px)}
+
+/* subtle floating animation on logo */
+@keyframes floaty {
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
+}
+.logo{animation:floaty 4s ease-in-out infinite}
+
+
+
+
+/* =========================
+   Contact page — fixes
+   Paste this at the end of style.css
+   ========================= */
+
+#contact {
+    /* give the contact section a tiny bit more breathing room */
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* Make the two-column contact area explicit and a bit wider on desktop */
+#contact .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 420px; /* left = info, right = form */
+    gap: 24px;
+    align-items: start;
+}
+
+/* Contact info block (left) — remove inner card padding so it aligns */
+#contact .contact-card {
+    padding: 6px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Tidy paragraphs and labels */
+#contact .contact-card strong {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+#contact .contact-card .small { margin: 0; }
+
+/* Form (right) styles — clear, accessible, and consistent */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Inputs / textarea */
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: transparent;
+    color: inherit;
+    font-size: 14px;
+    transition: box-shadow .16s ease, border-color .16s ease, transform .08s ease;
+    outline: none;
+    resize: vertical;
+}
+
+/* stronger focus state for accessibility */
+#contact input:focus,
+#contact textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 8px 26px rgba(11,114,133,0.12);
+    transform: translateY(-1px);
+}
+
+/* placeholder color (subtle) */
+#contact input::placeholder,
+#contact textarea::placeholder {
+    color: rgba(233,240,250,0.35);
+}
+
+/* submit button alignment and hover */
+#contact button {
+    align-self: flex-start; /* keep button left aligned with inputs */
+    margin-top: 6px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #04121a;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+#contact button:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(11,114,133,0.36); }
+
+/* small helper text under inputs (if you add validations) */
+#contact .field-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+/* ensure contact info / form stack nicely on small screens */
+@media (max-width: 900px) {
+    #contact .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    /* make the form button full-width on mobile for easier tapping */
+    #contact button {
+        width: 100%;
+        align-self: stretch;
+        text-align: center;
+    }
+
+    #contact .contact-card {
+        padding-bottom: 6px;
+    }
+}
